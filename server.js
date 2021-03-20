@@ -21,4 +21,10 @@ app.get('/',(req,res)=>{
     res.send("hellow") 
 })
 
+app.use((error,req,res,next) => {
+    res.status(500).json({message: error.message})
+})
+
 app.listen(PORT, ()=> console.log(`Running on port ${PORT}`))
+
+module.exports =app;
